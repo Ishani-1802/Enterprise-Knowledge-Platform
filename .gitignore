@@ -1,2 +1,13 @@
 __pycache__/
 *.pyc
+
+# Virtual environment and environment variables
+venv/
+.env/
+
+# persistent storage
+chroma_db/
+
+# OS junk
+.DS_Store
+Thumbs.db

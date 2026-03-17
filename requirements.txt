@@ -1,4 +1,4 @@
 pypdf
-openai
 chromadb
 python-dotenv
+sentence-transformers
