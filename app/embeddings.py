@@ -10,6 +10,12 @@ class LocalEmbeddingFunction:
     def __call__(self, input):
         return model.encode(input).tolist()
 
+    def embed_documents(self, texts):
+        return model.encode(texts).tolist()
+
+    def embed_query(self, input):  
+        return model.encode(input).tolist()
+
     def name(self):
         return "local-sentence-transformer"
 
