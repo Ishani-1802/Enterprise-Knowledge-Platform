@@ -12,6 +12,7 @@ class LocalEmbeddingFunction:
     def embed_documents(self, texts):
         return model.encode(texts).tolist()
 
+
     def embed_query(self, input):  # Added this method for query embedding
         return model.encode(input).tolist()
 
