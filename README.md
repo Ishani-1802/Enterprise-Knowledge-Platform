@@ -26,14 +26,36 @@ Automating deployment using DevOps best practices
 
 ## Tech Stack
 
-- Language: Python
-- Backend: FastAPI
-- LLM: OpenAI / Gemini / Claude
-- Embeddings: OpenAI Embeddings
-- Vector Store: FAISS / Chroma
-- Containerization: Docker
-- CI/CD: GitHub Actions
-- Deployment: Cloud VM / Platform-as-a-Service
+Core Technologies
+•Python 3.11+ – Core programming language for backend and pipeline development
+•Sentence Transformers – For generating semantic embeddings using transformer models
+•ChromaDB – Vector database for storing and retrieving document embeddings
+•PyPDF (pypdf) – PDF parsing and text extraction
+
+Machine Learning / NLP
+•Transformer-based Embeddings (all-MiniLM-L6-v2) – For semantic similarity search
+•Text Chunking Strategy – Custom sliding window approach for context preservation
+
+Retrieval System
+•Semantic Search – Context-aware retrieval using vector similarity
+•Retrieval-Augmented Generation (RAG) – Architecture for combining retrieval with LLMs (LLM integration in progress)
+
+Data Processing
+•Document Ingestion Pipeline – Automated loading and processing of PDF documents
+•Text Preprocessing & Chunking – Splitting large text into overlapping chunks
+
+Dev & Tooling
+•Git & GitHub – Version control and collaboration
+•Virtual Environment (venv) – Dependency isolation
+•VS Code – Development environment
+
+Deployment (Planned / Optional)
+•Docker – Containerization for reproducible deployment (planned)
+•CI/CD (GitHub Actions) – Automated workflows (planned)
+
+LLM Integration (In Progress)
+•Ollama (Local LLM Runtime) – Running open-source models locally
+•Mistral Model – Lightweight LLM for answer generation
 
 
 ## Project Structure
