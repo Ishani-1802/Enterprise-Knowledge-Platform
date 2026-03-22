@@ -10,6 +10,12 @@ class LocalEmbeddingFunction:
     def __call__(self, input):
         return model.encode(input).tolist()
 
+    def embed_documents(self, texts):
+        return model.encode(texts).tolist()
+
+    def embed_query(self, input):  
+        return model.encode(input).tolist()
+
     def name(self):
         return "local-sentence-transformer"
 
@@ -17,16 +23,12 @@ class LocalEmbeddingFunction:
 def create_vector_store():
     print("Loading documents...")
     documents = load_pdfs_from_directory("data/raw_docs")
-
-    print(f"Loaded {len(documents)} documents")
-
-    chunks = []
-    for doc in documents:
-        chunks.extend(chunk_text(doc))
+    print(f"Loaded text length: {len(documents)}")
+    chunks = chunk_text(documents)
 
     print(f"Total chunks to embed: {len(chunks)}")
 
-    client = chromadb.Client()
+    client = chromadb.PersistentClient(path="chroma_db")
     collection = client.get_or_create_collection(
         name="enterprise_docs",
         embedding_function=LocalEmbeddingFunction()
