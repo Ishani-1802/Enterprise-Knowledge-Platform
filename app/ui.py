@@ -6,6 +6,34 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import subprocess
+
+def ask_llm(question, context_chunks):
+    context = "\n\n".join(context_chunks)
+
+    prompt = f"""
+You are an enterprise knowledge assistant.
+
+Answer the question ONLY using the context below.
+If the answer is not found, say "I don't know."
+
+Context:
+{context}
+
+Question:
+{question}
+
+Answer:
+"""
+
+    result = subprocess.run(
+        ["ollama", "run", "mistral"],
+        input=prompt.encode(),
+        stdout=subprocess.PIPE
+    )
+
+    return result.stdout.decode()
+
 # --- Sidebar ---
 st.sidebar.title("📂 Upload Document")
 uploaded_file = st.sidebar.file_uploader("Upload a PDF", type="pdf")
@@ -46,7 +74,9 @@ if uploaded_file:
     query = st.text_input("Ask a question about the document:")
 
     if query:
-        answer = retrieve(query)
+        chunks = retrieve(query)
+        answer = ask_llm(query, chunks)
+        
         st.session_state.chat_history.append(("User", query))
         st.session_state.chat_history.append(("Bot", answer))
 
