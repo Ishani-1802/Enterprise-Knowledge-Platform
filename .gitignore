@@ -1,9 +1,22 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+sdist/
 
 # Virtual environment and environment variables
 venv/
+.venv/
+env/
+ENV/
 .env/
 
 # persistent storage
@@ -12,3 +25,17 @@ chroma_db/
 # OS junk
 .DS_Store
 Thumbs.db
+
+#logs
+*.log
+*.tmp
+*.temp
+*.bak
+
+#ide
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
