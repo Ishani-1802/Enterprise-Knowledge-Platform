@@ -1,4 +1,22 @@
-pypdf
-chromadb
-python-dotenv
+# Web UI
+streamlit
+
+# PDF Extraction
+pdfplumber
+
+# Semantic Text Chunking
+langchain-text-splitters
+
+# Local Embeddings
 sentence-transformers
+
+# Vector Database
+chromadb
+
+# HTTP Client (Ollama API)
+requests
+
+# ML / Tensor Backend
+# (required by sentence-transformers)
+torch
+transformers
