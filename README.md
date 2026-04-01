@@ -68,3 +68,24 @@ enterprise-knowledge-rag/
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
+
+Final System Architecture (Full Vision)
+User Question
+      │
+      ▼
+Embed Question
+      │
+      ▼
+Vector Search (ChromaDB)
+      │
+      ▼
+Top-K Chunks Retrieved
+      │
+      ▼
+Prompt Builder
+      │
+      ▼
+Local LLM
+      │
+      ▼
+Answer Returned to User
